@@ -1,12 +1,91 @@
-#include <ImGuiInstance/ImGuiInstance.hpp>
 
-#include <cmath>
-#include <numbers>
-#include <set>
-#include <vector>
+#include "Style.hpp"
+#include "Toolbar.hpp" 
+#include "SideBarMenu.hpp"
+#include "MainWindow.hpp"
+#include "DevicesMenu.hpp"
+
+
+
 
 int main() {
-    static constexpr std::size_t N    = 100000;
+ 
+    auto render = [&]() {
+
+        
+        ImGui::SetupImGuiStyle(false, 0.99f);
+        ImGui::SetNextWindowPos(ImVec2(0.0f, 0.0f));
+        ImGui::SetNextWindowSize(ImGui::GetIO().DisplaySize);
+        ImGui::Begin("foobar", nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoResize);
+
+        // BeginChild (rekursiv) als Bereiche --> Auslagerung in Funktionen 
+        // position über SetNextWindowPos größe festlegen --> nachschauen ob ich die positionieren kann oder sonst leere bereiche setzten 
+        // --> Für weitere Funktionen in ImGUI.h beschrieben --> da stehen auch die flags 
+
+        // First Child Window 
+
+        CreateToolbar(); 
+
+        ImGui:: SameLine(); 
+
+        SetSideBarMenu(); 
+
+        ImGui:: SameLine(); 
+
+        SetMainWindow(); 
+
+        SetDevicesMenu(); 
+
+
+        ImGui::End();
+
+
+    };
+
+    ImGuiInstance window{1280, 760, "Test"};
+    while(window.run(render)) {
+    }
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /*addPlots("Plots", plotData, [](auto x_min, auto x_max) {
+            ImPlot::SetupAxes("x", "y", 0, ImPlotAxisFlags_RangeFit | ImPlotAxisFlags_AutoFit);
+            ImPlot::SetupAxisLimitsConstraints(ImAxis_X1, x_min, x_max);
+        });*/
+
+ /* static constexpr std::size_t N    = 100000;
     static constexpr double      step = 0.001;
 
     std::vector<double> x1_data{};
@@ -110,22 +189,5 @@ int main() {
 
                 ImPlot::EndPlot();
             }
-        };
+        };*/
 
-    auto render = [&]() {
-        ImGui::SetNextWindowPos(ImVec2(0.0f, 0.0f));
-        ImGui::SetNextWindowSize(ImGui::GetIO().DisplaySize);
-        ImGui::Begin("foobar", nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoResize);
-
-        addPlots("Plots", plotData, [](auto x_min, auto x_max) {
-            ImPlot::SetupAxes("x", "y", 0, ImPlotAxisFlags_RangeFit | ImPlotAxisFlags_AutoFit);
-            ImPlot::SetupAxisLimitsConstraints(ImAxis_X1, x_min, x_max);
-        });
-        ImGui::End();
-    };
-
-    ImGuiInstance window{1280, 760, "Test"};
-    while(window.run(render)) {
-    }
-    return 0;
-}
