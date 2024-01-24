@@ -1,4 +1,6 @@
 
+
+// Include the different windows 
 #include "Style.hpp"
 #include "Toolbar.hpp" 
 #include "SideBarMenu.hpp"
@@ -6,10 +8,8 @@
 #include "DevicesMenu.hpp"
 
 
-
-
 int main() {
- 
+
     auto render = [&]() {
 
         
@@ -33,6 +33,8 @@ int main() {
         ImGui:: SameLine(); 
 
         SetMainWindow(); 
+
+        ImGui::SetupImGuiStyle(false, 0.99f);
 
         SetDevicesMenu(); 
 

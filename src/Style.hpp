@@ -18,7 +18,8 @@ namespace ImGui
     style.Colors[ImGuiCol_PopupBg] = ImVec4(37/255.0f, 40/255.0f, 43/255.0f, 100/100.0f);
     style.Colors[ImGuiCol_Border] =  ImVec4(235/255.0f, 62/255.0f, 54/255.0f, 98/100.0f);
     style.Colors[ImGuiCol_BorderShadow] = ImVec4(23/255.0f, 23/255.0f, 20/255.0f, 98/100.0f);
-    style.Colors[ImGuiCol_FrameBg] = ImVec4(23/255.0f, 23/255.0f, 20/255.0f, 100/100.0f);
+
+    style.Colors[ImGuiCol_FrameBg] = ImVec4(23/255.0f, 23/255.0f, 20/255.0f, 100/100.0f); // changes the color of the frame bg for the plot window
     style.Colors[ImGuiCol_FrameBgHovered] = ImVec4(23/255.0f, 23/255.0f, 20/255.0f, 100/100.0f);
     style.Colors[ImGuiCol_FrameBgActive] = ImVec4(23/255.0f, 23/255.0f, 20/255.0f, 100/100.0f);
     style.Colors[ImGuiCol_TitleBg] = ImVec4(23/255.0f, 23/255.0f, 20/255.0f, 100/100.0f);

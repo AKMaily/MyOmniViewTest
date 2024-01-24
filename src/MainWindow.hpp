@@ -1,5 +1,7 @@
 #include "Includinglibaries.hpp"
 
+
+// Function that plotts three sinus 
     auto addPlots
       = [firstRun
          = std::set<std::string>{}](auto const& name, auto const& plots, auto axesSetup) mutable {
@@ -69,8 +71,29 @@
         };
 
 
+void SetMainWindowStyle(){
 
+    ImGuiStyle &style = ImGui::GetStyle();
+
+    style.Colors[ImGuiCol_Text] = ImVec4(1/255.0f, 1/255.0f, 1/255.0f, 100/100.0f);
+    style.Colors[ImGuiCol_WindowBg] = ImVec4(255/255.0f, 255/255.0f, 255/255.0f, 100/100.0f);
+    style.Colors[ImGuiCol_Border] =  ImVec4(255/255.0f, 255/255.0f, 255/255.0f, 100/100.0f);
+    style.Colors[ImGuiCol_FrameBg] = ImVec4(255/255.0f, 255/255.0f, 255/255.0f, 100/100.0f);
+    style.Colors[ImGuiCol_FrameBgHovered] = ImVec4(255/255.0f, 255/255.0f, 255/255.0f, 100/100.0f);
+    style.Colors[ImGuiCol_FrameBgActive] = ImVec4(255/255.0f, 255/255.0f, 255/255.0f, 100/100.0f);
+
+    // Die Farben bei Hovern und klicken der Achsen 
+    style.Colors[ImGuiCol_ButtonHovered] = ImVec4(240/255.0f, 240/255.0f, 240/255.0f, 100/100.0f);
+    style.Colors[ImGuiCol_ButtonActive] = ImVec4(240/255.0f, 240/255.0f, 240/255.0f, 100/100.0f);
+}
+
+
+
+// Main Function to set the window 
 void SetMainWindow(){
+    
+    SetMainWindowStyle(); 
+
     ImGui:: SetCursorPos(ImVec2(ImGui::GetIO().DisplaySize.x * 0.18f, ImGui::GetIO().DisplaySize.y * 0.05f)); 
 
     ImGui::BeginChild("MainWindow", ImVec2(ImGui::GetIO().DisplaySize.x * 0.82f, ImGui::GetIO().DisplaySize.y * 0.65f), true); 
