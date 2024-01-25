@@ -10,6 +10,10 @@
 
 int main() {
 
+
+
+    
+
     auto render = [&]() {
 
         
@@ -18,6 +22,8 @@ int main() {
         ImGui::SetNextWindowSize(ImGui::GetIO().DisplaySize);
         ImGui::Begin("foobar", nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoResize);
 
+    
+
         // BeginChild (rekursiv) als Bereiche --> Auslagerung in Funktionen 
         // position über SetNextWindowPos größe festlegen --> nachschauen ob ich die positionieren kann oder sonst leere bereiche setzten 
         // --> Für weitere Funktionen in ImGUI.h beschrieben --> da stehen auch die flags 
@@ -25,6 +31,7 @@ int main() {
         // First Child Window 
 
         CreateToolbar(); 
+
 
         ImGui:: SameLine(); 
 
@@ -37,7 +44,7 @@ int main() {
         ImGui::SetupImGuiStyle(false, 0.99f);
 
         SetDevicesMenu(); 
-
+        
 
         ImGui::End();
 
@@ -47,6 +54,7 @@ int main() {
     ImGuiInstance window{1280, 760, "Test"};
     while(window.run(render)) {
     }
+
     return 0;
 }
 
